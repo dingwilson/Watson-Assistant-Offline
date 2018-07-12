@@ -8,20 +8,65 @@
 
 /* Begin PBXBuildFile section */
 		C8FEBC5A20F79B8300FF2F82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEBC5920F79B8300FF2F82 /* AppDelegate.swift */; };
-		C8FEBC5C20F79B8400FF2F82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEBC5B20F79B8300FF2F82 /* ViewController.swift */; };
 		C8FEBC5F20F79B8400FF2F82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC5D20F79B8400FF2F82 /* Main.storyboard */; };
 		C8FEBC6120F79B8500FF2F82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC6020F79B8500FF2F82 /* Assets.xcassets */; };
 		C8FEBC6420F79B8500FF2F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC6220F79B8500FF2F82 /* LaunchScreen.storyboard */; };
+		C8FEBC6D20F7A3FF00FF2F82 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEBC6C20F7A3FF00FF2F82 /* SplashViewController.swift */; };
+		C8FEBC7220F7AEA000FF2F82 /* AssistantMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEBC7120F7AEA000FF2F82 /* AssistantMessages.swift */; };
+		C8FEBC7420F7B01500FF2F82 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEBC7320F7B01500FF2F82 /* MessageViewController.swift */; };
+		C8FEBC7620F7BBA100FF2F82 /* MultiPeerDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEBC7520F7BBA100FF2F82 /* MultiPeerDataType.swift */; };
+		C8FEBC7820F7EAAA00FF2F82 /* background.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC7720F7EAAA00FF2F82 /* background.mp4 */; };
+		C8FEBC7B20F7ED3800FF2F82 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FEBC7A20F7ED3800FF2F82 /* NetworkManager.swift */; };
+		C8FEBC8120F7F6C700FF2F82 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC7E20F7F6C700FF2F82 /* Comfortaa-Light.ttf */; };
+		C8FEBC8220F7F6C700FF2F82 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC7F20F7F6C700FF2F82 /* Comfortaa-Regular.ttf */; };
+		C8FEBC8320F7F6C700FF2F82 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8020F7F6C700FF2F82 /* Comfortaa-Bold.ttf */; };
+		C8FEBC9020F7F6D300FF2F82 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8420F7F6D300FF2F82 /* Roboto-LightItalic.ttf */; };
+		C8FEBC9120F7F6D300FF2F82 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8520F7F6D300FF2F82 /* Roboto-MediumItalic.ttf */; };
+		C8FEBC9220F7F6D300FF2F82 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8620F7F6D300FF2F82 /* Roboto-Thin.ttf */; };
+		C8FEBC9320F7F6D300FF2F82 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8720F7F6D300FF2F82 /* Roboto-BlackItalic.ttf */; };
+		C8FEBC9420F7F6D300FF2F82 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8820F7F6D300FF2F82 /* Roboto-Medium.ttf */; };
+		C8FEBC9520F7F6D300FF2F82 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8920F7F6D300FF2F82 /* Roboto-BoldItalic.ttf */; };
+		C8FEBC9620F7F6D300FF2F82 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8A20F7F6D300FF2F82 /* Roboto-ThinItalic.ttf */; };
+		C8FEBC9720F7F6D300FF2F82 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8B20F7F6D300FF2F82 /* Roboto-Light.ttf */; };
+		C8FEBC9820F7F6D300FF2F82 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8C20F7F6D300FF2F82 /* Roboto-Regular.ttf */; };
+		C8FEBC9920F7F6D300FF2F82 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8D20F7F6D300FF2F82 /* Roboto-Italic.ttf */; };
+		C8FEBC9A20F7F6D300FF2F82 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8E20F7F6D300FF2F82 /* Roboto-Bold.ttf */; };
+		C8FEBC9B20F7F6D300FF2F82 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8FEBC8F20F7F6D300FF2F82 /* Roboto-Black.ttf */; };
+		CCF44A63E900A2A11972CDD5 /* Pods_Watson_Assistant_Offline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31A7804E4236EB429DC5962 /* Pods_Watson_Assistant_Offline.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2232C77BE9FF558443149360 /* Pods-Watson Assistant Offline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watson Assistant Offline.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watson Assistant Offline/Pods-Watson Assistant Offline.release.xcconfig"; sourceTree = "<group>"; };
 		C8FEBC5620F79B8300FF2F82 /* Watson Assistant Offline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watson Assistant Offline.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8FEBC5920F79B8300FF2F82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C8FEBC5B20F79B8300FF2F82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C8FEBC5E20F79B8400FF2F82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C8FEBC6020F79B8500FF2F82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8FEBC6320F79B8500FF2F82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8FEBC6520F79B8500FF2F82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8FEBC6C20F7A3FF00FF2F82 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		C8FEBC7120F7AEA000FF2F82 /* AssistantMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantMessages.swift; sourceTree = "<group>"; };
+		C8FEBC7320F7B01500FF2F82 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		C8FEBC7520F7BBA100FF2F82 /* MultiPeerDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPeerDataType.swift; sourceTree = "<group>"; };
+		C8FEBC7720F7EAAA00FF2F82 /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = background.mp4; path = "../../Downloads/Dodge-Tornado/MP4/background.mp4"; sourceTree = "<group>"; };
+		C8FEBC7A20F7ED3800FF2F82 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C8FEBC7D20F7F6B800FF2F82 /* background.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.mp4; sourceTree = "<group>"; };
+		C8FEBC7E20F7F6C700FF2F82 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-Light.ttf"; path = "../../../Downloads/Comfortaa/Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		C8FEBC7F20F7F6C700FF2F82 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-Regular.ttf"; path = "../../../Downloads/Comfortaa/Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
+		C8FEBC8020F7F6C700FF2F82 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Comfortaa-Bold.ttf"; path = "../../../Downloads/Comfortaa/Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
+		C8FEBC8420F7F6D300FF2F82 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-LightItalic.ttf"; path = "../../../Downloads/Roboto/Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		C8FEBC8520F7F6D300FF2F82 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-MediumItalic.ttf"; path = "../../../Downloads/Roboto/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C8FEBC8620F7F6D300FF2F82 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Thin.ttf"; path = "../../../Downloads/Roboto/Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		C8FEBC8720F7F6D300FF2F82 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BlackItalic.ttf"; path = "../../../Downloads/Roboto/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C8FEBC8820F7F6D300FF2F82 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../../../Downloads/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		C8FEBC8920F7F6D300FF2F82 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-BoldItalic.ttf"; path = "../../../Downloads/Roboto/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C8FEBC8A20F7F6D300FF2F82 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-ThinItalic.ttf"; path = "../../../Downloads/Roboto/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C8FEBC8B20F7F6D300FF2F82 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Light.ttf"; path = "../../../Downloads/Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; };
+		C8FEBC8C20F7F6D300FF2F82 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../../Downloads/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		C8FEBC8D20F7F6D300FF2F82 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Italic.ttf"; path = "../../../Downloads/Roboto/Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		C8FEBC8E20F7F6D300FF2F82 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../Downloads/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		C8FEBC8F20F7F6D300FF2F82 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../../../Downloads/Roboto/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		D31A7804E4236EB429DC5962 /* Pods_Watson_Assistant_Offline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watson_Assistant_Offline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCCE90571A711FDF9681A502 /* Pods-Watson Assistant Offline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watson Assistant Offline.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Watson Assistant Offline/Pods-Watson Assistant Offline.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +74,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF44A63E900A2A11972CDD5 /* Pods_Watson_Assistant_Offline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30E6AD5576E2973350A58EF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D31A7804E4236EB429DC5962 /* Pods_Watson_Assistant_Offline.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C8FEBC4D20F79B8300FF2F82 = {
 			isa = PBXGroup;
 			children = (
 				C8FEBC5820F79B8300FF2F82 /* Watson Assistant Offline */,
 				C8FEBC5720F79B8300FF2F82 /* Products */,
+				F5CF2CC6D9CACB2534057B2E /* Pods */,
+				30E6AD5576E2973350A58EF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +110,76 @@
 		C8FEBC5820F79B8300FF2F82 /* Watson Assistant Offline */ = {
 			isa = PBXGroup;
 			children = (
+				C8FEBC7C20F7F6B100FF2F82 /* SupportingFiles */,
+				C8FEBC7920F7ECEE00FF2F82 /* Utils */,
+				C8FEBC7720F7EAAA00FF2F82 /* background.mp4 */,
+				C8FEBC7020F7AE7600FF2F82 /* Models */,
+				C8FEBC6B20F7A3ED00FF2F82 /* Controllers */,
 				C8FEBC5920F79B8300FF2F82 /* AppDelegate.swift */,
-				C8FEBC5B20F79B8300FF2F82 /* ViewController.swift */,
 				C8FEBC5D20F79B8400FF2F82 /* Main.storyboard */,
 				C8FEBC6020F79B8500FF2F82 /* Assets.xcassets */,
 				C8FEBC6220F79B8500FF2F82 /* LaunchScreen.storyboard */,
 				C8FEBC6520F79B8500FF2F82 /* Info.plist */,
 			);
 			path = "Watson Assistant Offline";
+			sourceTree = "<group>";
+		};
+		C8FEBC6B20F7A3ED00FF2F82 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C8FEBC7320F7B01500FF2F82 /* MessageViewController.swift */,
+				C8FEBC6C20F7A3FF00FF2F82 /* SplashViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C8FEBC7020F7AE7600FF2F82 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C8FEBC7120F7AEA000FF2F82 /* AssistantMessages.swift */,
+				C8FEBC7520F7BBA100FF2F82 /* MultiPeerDataType.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C8FEBC7920F7ECEE00FF2F82 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C8FEBC7A20F7ED3800FF2F82 /* NetworkManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C8FEBC7C20F7F6B100FF2F82 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				C8FEBC8F20F7F6D300FF2F82 /* Roboto-Black.ttf */,
+				C8FEBC8720F7F6D300FF2F82 /* Roboto-BlackItalic.ttf */,
+				C8FEBC8E20F7F6D300FF2F82 /* Roboto-Bold.ttf */,
+				C8FEBC8920F7F6D300FF2F82 /* Roboto-BoldItalic.ttf */,
+				C8FEBC8D20F7F6D300FF2F82 /* Roboto-Italic.ttf */,
+				C8FEBC8B20F7F6D300FF2F82 /* Roboto-Light.ttf */,
+				C8FEBC8420F7F6D300FF2F82 /* Roboto-LightItalic.ttf */,
+				C8FEBC8820F7F6D300FF2F82 /* Roboto-Medium.ttf */,
+				C8FEBC8520F7F6D300FF2F82 /* Roboto-MediumItalic.ttf */,
+				C8FEBC8C20F7F6D300FF2F82 /* Roboto-Regular.ttf */,
+				C8FEBC8620F7F6D300FF2F82 /* Roboto-Thin.ttf */,
+				C8FEBC8A20F7F6D300FF2F82 /* Roboto-ThinItalic.ttf */,
+				C8FEBC8020F7F6C700FF2F82 /* Comfortaa-Bold.ttf */,
+				C8FEBC7E20F7F6C700FF2F82 /* Comfortaa-Light.ttf */,
+				C8FEBC7F20F7F6C700FF2F82 /* Comfortaa-Regular.ttf */,
+				C8FEBC7D20F7F6B800FF2F82 /* background.mp4 */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		F5CF2CC6D9CACB2534057B2E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCCE90571A711FDF9681A502 /* Pods-Watson Assistant Offline.debug.xcconfig */,
+				2232C77BE9FF558443149360 /* Pods-Watson Assistant Offline.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +189,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8FEBC6820F79B8500FF2F82 /* Build configuration list for PBXNativeTarget "Watson Assistant Offline" */;
 			buildPhases = (
+				11FDFEFDE4B738E94E076DFF /* [CP] Check Pods Manifest.lock */,
 				C8FEBC5220F79B8300FF2F82 /* Sources */,
 				C8FEBC5320F79B8300FF2F82 /* Frameworks */,
 				C8FEBC5420F79B8300FF2F82 /* Resources */,
+				69124009FD3BD33B330AA0EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,20 +243,85 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8FEBC6420F79B8500FF2F82 /* LaunchScreen.storyboard in Resources */,
+				C8FEBC7820F7EAAA00FF2F82 /* background.mp4 in Resources */,
+				C8FEBC9820F7F6D300FF2F82 /* Roboto-Regular.ttf in Resources */,
+				C8FEBC9720F7F6D300FF2F82 /* Roboto-Light.ttf in Resources */,
+				C8FEBC9020F7F6D300FF2F82 /* Roboto-LightItalic.ttf in Resources */,
 				C8FEBC6120F79B8500FF2F82 /* Assets.xcassets in Resources */,
+				C8FEBC9920F7F6D300FF2F82 /* Roboto-Italic.ttf in Resources */,
+				C8FEBC9520F7F6D300FF2F82 /* Roboto-BoldItalic.ttf in Resources */,
 				C8FEBC5F20F79B8400FF2F82 /* Main.storyboard in Resources */,
+				C8FEBC8220F7F6C700FF2F82 /* Comfortaa-Regular.ttf in Resources */,
+				C8FEBC9320F7F6D300FF2F82 /* Roboto-BlackItalic.ttf in Resources */,
+				C8FEBC8120F7F6C700FF2F82 /* Comfortaa-Light.ttf in Resources */,
+				C8FEBC9420F7F6D300FF2F82 /* Roboto-Medium.ttf in Resources */,
+				C8FEBC9620F7F6D300FF2F82 /* Roboto-ThinItalic.ttf in Resources */,
+				C8FEBC9B20F7F6D300FF2F82 /* Roboto-Black.ttf in Resources */,
+				C8FEBC9A20F7F6D300FF2F82 /* Roboto-Bold.ttf in Resources */,
+				C8FEBC9120F7F6D300FF2F82 /* Roboto-MediumItalic.ttf in Resources */,
+				C8FEBC9220F7F6D300FF2F82 /* Roboto-Thin.ttf in Resources */,
+				C8FEBC8320F7F6C700FF2F82 /* Comfortaa-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11FDFEFDE4B738E94E076DFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Watson Assistant Offline-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69124009FD3BD33B330AA0EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Watson Assistant Offline/Pods-Watson Assistant Offline-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MultiPeer/MultiPeer.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftVideoBackground/SwiftVideoBackground.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultiPeer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftVideoBackground.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Watson Assistant Offline/Pods-Watson Assistant Offline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C8FEBC5220F79B8300FF2F82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8FEBC5C20F79B8400FF2F82 /* ViewController.swift in Sources */,
+				C8FEBC7B20F7ED3800FF2F82 /* NetworkManager.swift in Sources */,
+				C8FEBC7220F7AEA000FF2F82 /* AssistantMessages.swift in Sources */,
 				C8FEBC5A20F79B8300FF2F82 /* AppDelegate.swift in Sources */,
+				C8FEBC7420F7B01500FF2F82 /* MessageViewController.swift in Sources */,
+				C8FEBC6D20F7A3FF00FF2F82 /* SplashViewController.swift in Sources */,
+				C8FEBC7620F7BBA100FF2F82 /* MultiPeerDataType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +463,7 @@
 		};
 		C8FEBC6920F79B8500FF2F82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCCE90571A711FDF9681A502 /* Pods-Watson Assistant Offline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +482,7 @@
 		};
 		C8FEBC6A20F79B8500FF2F82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2232C77BE9FF558443149360 /* Pods-Watson Assistant Offline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
