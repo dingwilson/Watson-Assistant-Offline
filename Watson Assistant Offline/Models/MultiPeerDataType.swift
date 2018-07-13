@@ -9,4 +9,5 @@
 enum DataType: UInt32 {
     case message = 1
     case response = 2
+    case chat = 3
 }

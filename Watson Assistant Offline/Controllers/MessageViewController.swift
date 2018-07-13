@@ -15,7 +15,12 @@ import PKHUD
 
 class MessageViewController: MessagesViewController {
     
+    @IBOutlet weak var groupChatbutton: UIBarButtonItem!
+    
     fileprivate let kCollectionViewCellHeight: CGFloat = 12.5
+    
+    // Group Chat
+    var isGroupChat = false
     
     // Messages State
     var messageList: [AssistantMessages] = []
@@ -29,7 +34,7 @@ class MessageViewController: MessagesViewController {
     let uuid = UUID().uuidString
     
     // Users
-    var current = Sender(id: "123456", displayName: "You")
+    let current = Sender(id: "123456", displayName: "You")
     let watson = Sender(id: "654321", displayName: "Cape")
     
     // Location
@@ -58,13 +63,14 @@ class MessageViewController: MessagesViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.addMessage("Hi! I'm Cape, the offline disaster relief chatbot, powered by Watson Asssitant! I am here to help answer any questions and direct first responders to help assist you however necessary.")
             self.addMessage("""
-                Feel free to try ask me questions like:
+                Feel free to try ask me private questions like:
 
-                - How do I perform CPR?
-                - Where can I find shelter?
-                - What are the current weather conditions?
-                - I need help.
+                - Hey Cape, how do I perform CPR?
+                - Cape, where can I find shelter?
+                - Hey Cape, what are the current weather conditions?
+                - Cape, I need help.
                 """)
+            self.addMessage("You can also chat with others in your area by tapping the private button to change it to public chat. Don't worry, messages to me will still be private.")
         }
     }
     
@@ -83,6 +89,17 @@ class MessageViewController: MessagesViewController {
             self.addMessage("First responders are now aware of your location, and are on their way. Don't worry, you're in good hands.")
         }
     }
+    
+    @IBAction func didPressChatPrivacyButton(_ sender: Any) {
+        isGroupChat = !isGroupChat
+        
+        if isGroupChat {
+            groupChatbutton.title = "Chat: Public"
+        } else {
+            groupChatbutton.title = "Chat: Private"
+        }
+    }
+    
     
     // MARK: - Setup Methods
     
@@ -127,27 +144,33 @@ class MessageViewController: MessagesViewController {
         case watson:
             return Avatar(image: UIImage(named: "watson_avatar"), initials: "CAPE")
         default:
-            return Avatar()
+            return Avatar(image: UIImage(named: "empty_avatar"), initials: "GROUP")
         }
     }
     
     // Method to attempt request to backend
     func attemptRequestWith(message: String, for userUUID: String) {
-        NetworkManager.instance.send(message, uuid: userUUID) { (success, response) in
-            if success {
-                guard let response = response else { return }
-                
-                let responseResult = response.components(separatedBy: "|")
-                
-                if responseResult[0] == self.uuid {
-                    self.addMessage(responseResult[1])
+        if message.lowercased().range(of:" cape") != nil || !isGroupChat {
+            let watsonMessage = message.replacingOccurrences(of: " cape", with: "")
+            
+            NetworkManager.instance.send(watsonMessage, uuid: userUUID) { (success, response) in
+                if success {
+                    guard let response = response else { return }
+                    
+                    let responseResult = response.components(separatedBy: "|")
+                    
+                    if responseResult[0] == self.uuid {
+                        self.addMessage(responseResult[1])
+                    } else {
+                        MultiPeer.instance.send(object: response, type: DataType.response.rawValue)
+                    }
+                    
                 } else {
-                    MultiPeer.instance.send(object: response, type: DataType.response.rawValue)
+                    MultiPeer.instance.send(object: "\(userUUID)|\(watsonMessage)", type: DataType.message.rawValue)
                 }
-                
-            } else {
-                MultiPeer.instance.send(object: "\(userUUID)|\(message)", type: DataType.message.rawValue)
             }
+        } else {
+            MultiPeer.instance.send(object: "\(UIDevice.current.name)|\(message)", type: DataType.chat.rawValue)
         }
     }
     
@@ -166,6 +189,18 @@ class MessageViewController: MessagesViewController {
             let attributedText = NSAttributedString(string: message, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.blue])
             let id = UUID().uuidString
             let message = AssistantMessages(attributedText: attributedText, sender: self.watson, messageId: id, date: Date())
+            self.messageList.append(message)
+            self.messagesCollectionView.insertSections([self.messageList.count - 1])
+            self.messagesCollectionView.scrollToBottom()
+        }
+    }
+    
+    // Method to add group chat message
+    func addGroupMessage(_ message: String, name: String) {
+        DispatchQueue.main.async {
+            let attributedText = NSAttributedString(string: message, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.blue])
+            let id = UUID().uuidString
+            let message = AssistantMessages(attributedText: attributedText, sender: Sender(id: "000000", displayName: name), messageId: id, date: Date())
             self.messageList.append(message)
             self.messagesCollectionView.insertSections([self.messageList.count - 1])
             self.messagesCollectionView.scrollToBottom()
@@ -229,7 +264,15 @@ extension MessageViewController: MessagesDisplayDelegate {
     // MARK: - All Messages
     
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? UIColor(red: 184/255, green: 0, blue: 0, alpha: 1) : UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+        if isFromCurrentSender(message: message) {
+            return UIColor(red: 184/255, green: 0, blue: 0, alpha: 1)
+        } else {
+            if message.sender == self.watson {
+                return UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+            } else {
+                return UIColor(red: 120/255, green: 120/255, blue: 120/255, alpha: 1)
+            }
+        }
     }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
@@ -396,8 +439,18 @@ extension MessageViewController: MultiPeerDelegate {
             let messageResult = string.components(separatedBy: "|")
             
             if messageResult[0] == self.uuid {
-                print(messageResult)
                 self.addMessage(messageResult[1])
+            }
+            
+            break
+            
+        case DataType.chat.rawValue:
+            let string = data.convert() as! String
+            
+            if isGroupChat {
+                let messageResult = string.components(separatedBy: "|")
+                
+                self.addGroupMessage(messageResult[1], name: messageResult[0])
             }
             
             break

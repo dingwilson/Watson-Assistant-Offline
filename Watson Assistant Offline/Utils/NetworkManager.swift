@@ -25,7 +25,7 @@ class NetworkManager {
             return
         }
         
-        let endpoint = "/message?msg=\(sanitizedMessage)&uuid=\(uuid)"
+        let endpoint = "/message?msg=\(sanitizedMessage)&uuid=\(uuid)&name=\(UIDevice.current.name)"
         
         Alamofire.request(backendUrl + endpoint).validate().responseString { response in
             switch response.result {

@@ -85,6 +85,12 @@
                         <viewLayoutGuide key="safeArea" id="0FH-sy-LJK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cape" id="FIa-3m-FtO">
+                        <barButtonItem key="leftBarButtonItem" title="Chat: Private" id="6bk-vb-y4N">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="didPressChatPrivacyButton:" destination="Ifs-Cb-KM3" id="lOC-5y-Npf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="RESCUE" id="KqF-2o-x5u">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -92,6 +98,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="groupChatbutton" destination="6bk-vb-y4N" id="oII-Gf-gJU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zv1-JN-96S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
