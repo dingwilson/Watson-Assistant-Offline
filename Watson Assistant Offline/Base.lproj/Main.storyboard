@@ -31,41 +31,41 @@
                                 <rect key="frame" x="0.0" y="603" width="375" height="64"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Hr2-ih-z9m"/>
+                                    <constraint firstAttribute="height" constant="64" id="Ws9-5D-Nh7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="35"/>
                                 <state key="normal" title="Connect">
-                                    <color key="titleColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="RXq-1I-oQE" kind="show" id="fnP-pC-dp0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watson Assistant Offline" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBo-TN-MKg">
-                                <rect key="frame" x="16" y="260" width="343" height="147"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="43"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watson_big" translatesAutoresizingMaskIntoConstraints="NO" id="muN-N4-fy9">
                                 <rect key="frame" x="67" y="124" width="241" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="857-Sc-8mF"/>
+                                    <constraint firstAttribute="height" constant="128" id="sL0-ND-9A4"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cape" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBo-TN-MKg">
+                                <rect key="frame" x="16" y="260" width="343" height="147"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="75"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.82482533674901304" green="0.81988626287626454" blue="0.82976441062176165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Mzf-oM-Joz" secondAttribute="trailing" id="Gfd-lU-dE6"/>
-                            <constraint firstItem="muN-N4-fy9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="GhC-u6-Sve"/>
-                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="PR2-9f-7aR"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerX" secondItem="Mzf-oM-Joz" secondAttribute="centerX" id="R94-7R-fp6"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="top" secondItem="muN-N4-fy9" secondAttribute="bottom" constant="8" symbolic="YES" id="bhN-2R-TNE"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fd3-IB-dCe"/>
-                            <constraint firstItem="muN-N4-fy9" firstAttribute="centerX" secondItem="UBo-TN-MKg" secondAttribute="centerX" id="lgV-Yy-cV1"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="njA-PY-Y2A"/>
-                            <constraint firstItem="muN-N4-fy9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="ufd-k7-3Qd"/>
-                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xI9-Va-XpN"/>
+                            <constraint firstItem="muN-N4-fy9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="1wi-cs-JjA"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="top" secondItem="muN-N4-fy9" secondAttribute="bottom" constant="8" symbolic="YES" id="4GV-y9-hoM"/>
+                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BXV-Fu-UYY"/>
+                            <constraint firstItem="muN-N4-fy9" firstAttribute="centerX" secondItem="UBo-TN-MKg" secondAttribute="centerX" id="FiJ-v9-GkU"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PHm-pY-3EK"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bce-KH-Ulo"/>
+                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f7G-RI-I5F"/>
+                            <constraint firstAttribute="trailing" secondItem="Mzf-oM-Joz" secondAttribute="trailing" id="fc0-5q-WI2"/>
+                            <constraint firstItem="muN-N4-fy9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="jbQ-yt-UpO"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerX" secondItem="Mzf-oM-Joz" secondAttribute="centerX" id="l3w-w5-WZq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -74,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
         </scene>
-        <!--Message View Controller-->
+        <!--Cape-->
         <scene sceneID="u9g-6N-sEY">
             <objects>
                 <viewController id="Ifs-Cb-KM3" customClass="MessageViewController" customModule="Watson_Assistant_Offline" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0FH-sy-LJK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FIa-3m-FtO"/>
+                    <navigationItem key="navigationItem" title="Cape" id="FIa-3m-FtO">
+                        <barButtonItem key="rightBarButtonItem" title="RESCUE" id="KqF-2o-x5u">
+                            <connections>
+                                <action selector="didPressRESCUE:" destination="Ifs-Cb-KM3" id="0ix-oX-9nH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zv1-JN-96S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

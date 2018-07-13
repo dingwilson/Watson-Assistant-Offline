@@ -10,6 +10,8 @@ import UIKit
 import MessageKit
 import MapKit
 import MultiPeer
+import CoreLocation
+import PKHUD
 
 class MessageViewController: MessagesViewController {
     
@@ -23,29 +25,63 @@ class MessageViewController: MessagesViewController {
     // Watson Assistant Workspace
     var workspaceID: String?
     
+    // UUID
+    let uuid = UUID().uuidString
+    
     // Users
-    var current = Sender(id: "123456", displayName: "Self")
-    let watson = Sender(id: "654321", displayName: "Watson")
+    var current = Sender(id: "123456", displayName: "You")
+    let watson = Sender(id: "654321", displayName: "Cape")
+    
+    // Location
+    var locationManager: CLLocationManager!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        // Registers data sources and delegates + setup views
-        setupMessagesKit()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 184/255, green: 0, blue: 0, alpha: 1)
+        
+        // Setup CLLocation
+        setupLocation()
 
         // Setup MultiPeerConnectivity
         setupMultiPeer()
+
+        // Registers data sources and delegates + setup views
+        setupMessagesKit()
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.addMessage("Hi! I'm Cape, the offline disaster relief chatbot, powered by Watson Asssitant! I am here to help answer any questions and direct first responders to help assist you however necessary.")
+            self.addMessage("""
+                Feel free to try ask me questions like:
+
+                - How do I perform CPR?
+                - Where can I find shelter?
+                - What are the current weather conditions?
+                - I need help.
+                """)
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func didPressRESCUE(_ sender: Any) {
+        HUD.show(.progress)
+        attemptRescue(for: uuid)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            HUD.flash(.success, delay: 2.0)
+            self.addMessage("First responders are now aware of your location, and are on their way. Don't worry, you're in good hands.")
+        }
     }
     
     // MARK: - Setup Methods
@@ -74,15 +110,65 @@ class MessageViewController: MessagesViewController {
         MultiPeer.instance.delegate = self
     }
     
+    // Method to set up CLLocation
+    func setupLocation() {
+        self.locationManager = CLLocationManager()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
+    
     // Method to retrieve assistant avatar
     func getAvatarFor(sender: Sender) -> Avatar {
         switch sender {
         case current:
-            return Avatar(image: UIImage(named: "empty_avatar"), initials: "SELF")
+            return Avatar(image: UIImage(named: "empty_avatar"), initials: "YOU")
         case watson:
-            return Avatar(image: UIImage(named: "watson_avatar"), initials: "WATSON")
+            return Avatar(image: UIImage(named: "watson_avatar"), initials: "CAPE")
         default:
             return Avatar()
+        }
+    }
+    
+    // Method to attempt request to backend
+    func attemptRequestWith(message: String, for userUUID: String) {
+        NetworkManager.instance.send(message, uuid: userUUID) { (success, response) in
+            if success {
+                guard let response = response else { return }
+                
+                let responseResult = response.components(separatedBy: "|")
+                
+                if responseResult[0] == self.uuid {
+                    self.addMessage(responseResult[1])
+                } else {
+                    MultiPeer.instance.send(object: response, type: DataType.response.rawValue)
+                }
+                
+            } else {
+                MultiPeer.instance.send(object: "\(userUUID)|\(message)", type: DataType.message.rawValue)
+            }
+        }
+    }
+    
+    // Method to attempt rescue request to backend
+    func attemptRescue(for userUUID: String) {
+        NetworkManager.instance.rescue(userUUID, lat: (locationManager.location?.coordinate.latitude)!, long: (locationManager.location?.coordinate.longitude)!) { (success, response) in
+            // apparently the endpoint gives a 500 error, but still completes successfully...
+            // magic spaghetti code on the backend
+        }
+        
+    }
+    
+    // Method to add message
+    func addMessage(_ message: String) {
+        DispatchQueue.main.async {
+            let attributedText = NSAttributedString(string: message, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.blue])
+            let id = UUID().uuidString
+            let message = AssistantMessages(attributedText: attributedText, sender: self.watson, messageId: id, date: Date())
+            self.messageList.append(message)
+            self.messagesCollectionView.insertSections([self.messageList.count - 1])
+            self.messagesCollectionView.scrollToBottom()
         }
     }
 }
@@ -283,7 +369,7 @@ extension MessageViewController: MessageInputBarDelegate {
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .replacingOccurrences(of: "\n", with: ". ")
         
-        MultiPeer.instance.send(object: cleanText, type: DataType.message.rawValue)
+        attemptRequestWith(message: cleanText, for: uuid)
         
         inputBar.inputTextView.text = String()
     }
@@ -298,24 +384,35 @@ extension MessageViewController: MultiPeerDelegate {
         case DataType.message.rawValue:
             let string = data.convert() as! String
             
-            // TODO: add if statement to check uuid and only display for right uuid
+            let messageArray = string.components(separatedBy: "|")
             
-            DispatchQueue.main.async {
-                let attributedText = NSAttributedString(string: string, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.blue])
-                let id = UUID().uuidString
-                let message = AssistantMessages(attributedText: attributedText, sender: self.watson, messageId: id, date: Date())
-                self.messageList.append(message)
-                self.messagesCollectionView.insertSections([self.messageList.count - 1])
-                self.messagesCollectionView.scrollToBottom()
+            attemptRequestWith(message: messageArray[1], for: messageArray[0])
+            
+            break
+            
+        case DataType.response.rawValue:
+            let string = data.convert() as! String
+            
+            let messageResult = string.components(separatedBy: "|")
+            
+            if messageResult[0] == self.uuid {
+                print(messageResult)
+                self.addMessage(messageResult[1])
             }
             
-            break;
+            break
             
         default:
-            break;
+            break
         }
     }
     
     func multiPeer(connectedDevicesChanged devices: [String]) {
     }
+}
+
+// MARK: - CLLocation
+
+extension MessageViewController: CLLocationManagerDelegate {
+    
 }

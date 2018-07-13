@@ -12,24 +12,40 @@ import Alamofire
 class NetworkManager {
     typealias NetworkHandler = (_ success: Bool, _ message: String?) -> Void
     
-    let backendUrl = "ayylmao"  // TODO: replace
+    private let backendUrl = "https://capes.mybluemix.net"
     
-    public func send(_ message: String, lat: Double, long: Double, uuid: String, networkHandler: @escaping NetworkHandler) {
+    static let instance = NetworkManager()
+    
+    public func send(_ message: String, uuid: String, networkHandler: @escaping NetworkHandler) {
         
         guard
             let sanitizedMessage = message.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             !sanitizedMessage.isEmpty
         else {
-            
             return
         }
         
-        let endpoint = "/message?msg=\(sanitizedMessage)&lat=\(lat)&long=\(long)&uid=\(uuid)"
+        let endpoint = "/message?msg=\(sanitizedMessage)&uuid=\(uuid)"
         
-        Alamofire.request(backendUrl + endpoint, method: .post).validate().responseString { response in
+        Alamofire.request(backendUrl + endpoint).validate().responseString { response in
             switch response.result {
             case .success:
-                networkHandler(true, response.result.value)
+                guard let message = response.result.value else { return }
+                networkHandler(true, message)
+            case .failure(let error):
+                print(error.localizedDescription)
+                networkHandler(false, error.localizedDescription)
+            }
+        }
+    }
+
+    public func rescue(_ uuid: String, lat: Double, long: Double, networkHandler: @escaping NetworkHandler) {
+        let endpoint = "/panic?lat=\(lat)&long=\(long)&uuid=\(uuid)"
+        
+        Alamofire.request(backendUrl + endpoint).validate().responseString { response in
+            switch response.result {
+            case .success:
+                networkHandler(true, nil)
             case .failure(let error):
                 print(error.localizedDescription)
                 networkHandler(false, error.localizedDescription)

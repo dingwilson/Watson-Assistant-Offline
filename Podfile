@@ -9,6 +9,7 @@ target 'Watson Assistant Offline' do
   pod 'Alamofire', '~> 4.7.2'
   pod 'MessageKit', '~> 0.13'
   pod 'MultiPeer', '~> 0.0.8'
+  pod 'PKHUD', '~> 5.0'
   pod 'SwiftVideoBackground', '~> 3.0.0'
 
 end
