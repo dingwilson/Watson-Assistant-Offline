@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="603" width="375" height="64"/>
                                 <color key="backgroundColor" red="0.72156862749999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="Ws9-5D-Nh7"/>
+                                    <constraint firstAttribute="height" constant="64" id="5la-NA-Uw2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="35"/>
                                 <state key="normal" title="Connect">
@@ -41,10 +41,10 @@
                                     <segue destination="RXq-1I-oQE" kind="show" id="fnP-pC-dp0"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watson_big" translatesAutoresizingMaskIntoConstraints="NO" id="muN-N4-fy9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="transparent" translatesAutoresizingMaskIntoConstraints="NO" id="muN-N4-fy9">
                                 <rect key="frame" x="67" y="124" width="241" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="sL0-ND-9A4"/>
+                                    <constraint firstAttribute="height" constant="128" id="A1c-Vl-HlC"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cape" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBo-TN-MKg">
@@ -56,16 +56,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.82482533674901304" green="0.81988626287626454" blue="0.82976441062176165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="muN-N4-fy9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="1wi-cs-JjA"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="top" secondItem="muN-N4-fy9" secondAttribute="bottom" constant="8" symbolic="YES" id="4GV-y9-hoM"/>
-                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BXV-Fu-UYY"/>
-                            <constraint firstItem="muN-N4-fy9" firstAttribute="centerX" secondItem="UBo-TN-MKg" secondAttribute="centerX" id="FiJ-v9-GkU"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="PHm-pY-3EK"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bce-KH-Ulo"/>
-                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f7G-RI-I5F"/>
-                            <constraint firstAttribute="trailing" secondItem="Mzf-oM-Joz" secondAttribute="trailing" id="fc0-5q-WI2"/>
-                            <constraint firstItem="muN-N4-fy9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="jbQ-yt-UpO"/>
-                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerX" secondItem="Mzf-oM-Joz" secondAttribute="centerX" id="l3w-w5-WZq"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerX" secondItem="Mzf-oM-Joz" secondAttribute="centerX" id="Eaw-z1-MJD"/>
+                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="FHg-Mf-vUk"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GC3-kC-g5E"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aA8-ae-pNk"/>
+                            <constraint firstItem="muN-N4-fy9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="aga-dp-PtD"/>
+                            <constraint firstItem="muN-N4-fy9" firstAttribute="centerX" secondItem="UBo-TN-MKg" secondAttribute="centerX" id="ceD-nl-jSu"/>
+                            <constraint firstItem="Mzf-oM-Joz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="cza-yE-3SH"/>
+                            <constraint firstItem="UBo-TN-MKg" firstAttribute="top" secondItem="muN-N4-fy9" secondAttribute="bottom" constant="8" symbolic="YES" id="eRc-fZ-xpy"/>
+                            <constraint firstAttribute="trailing" secondItem="Mzf-oM-Joz" secondAttribute="trailing" id="knu-La-ehh"/>
+                            <constraint firstItem="muN-N4-fy9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="wqx-hm-YGy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -126,6 +126,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="watson_big" width="1200" height="1110"/>
+        <image name="transparent" width="187" height="146"/>
     </resources>
 </document>

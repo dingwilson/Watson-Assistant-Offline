@@ -25,7 +25,7 @@ class NetworkManager {
             return
         }
         
-        let endpoint = "/message?msg=\(sanitizedMessage)&uuid=\(uuid)&name=\(UIDevice.current.name)"
+        let endpoint = "/message?msg=\(sanitizedMessage)&uuid=\(uuid)"
         
         Alamofire.request(backendUrl + endpoint).validate().responseString { response in
             switch response.result {
@@ -40,7 +40,15 @@ class NetworkManager {
     }
 
     public func rescue(_ uuid: String, lat: Double, long: Double, networkHandler: @escaping NetworkHandler) {
-        let endpoint = "/panic?lat=\(lat)&long=\(long)&uuid=\(uuid)"
+        
+        guard
+            let sanitizedName = UIDevice.current.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            !sanitizedName.isEmpty
+            else {
+                return
+        }
+        
+        let endpoint = "/panic?lat=\(lat)&long=\(long)&uuid=\(uuid)&name=\(sanitizedName)"
         
         Alamofire.request(backendUrl + endpoint, method: .post).validate().responseString { response in
             switch response.result {
