@@ -86,6 +86,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Cape" id="FIa-3m-FtO">
                         <barButtonItem key="rightBarButtonItem" title="RESCUE" id="KqF-2o-x5u">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="didPressRESCUE:" destination="Ifs-Cb-KM3" id="0ix-oX-9nH"/>
                             </connections>

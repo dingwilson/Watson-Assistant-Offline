@@ -42,7 +42,7 @@ class NetworkManager {
     public func rescue(_ uuid: String, lat: Double, long: Double, networkHandler: @escaping NetworkHandler) {
         let endpoint = "/panic?lat=\(lat)&long=\(long)&uuid=\(uuid)"
         
-        Alamofire.request(backendUrl + endpoint).validate().responseString { response in
+        Alamofire.request(backendUrl + endpoint, method: .post).validate().responseString { response in
             switch response.result {
             case .success:
                 networkHandler(true, nil)
